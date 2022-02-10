@@ -1,0 +1,18 @@
+﻿@if (Model.drinks != null)
+{
+    <div class="row">
+        @foreach (var item in Model.drinks)
+        {
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail" onclick="getDetalle(@item.idDrink)">
+                    <img src="@item.strDrinkThumb" style="width:200% !important; height:500% !important;" />
+                    <label>@item.strDrink</label>
+                </a>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <label class="alert-warning">Sin datos</label>
+}

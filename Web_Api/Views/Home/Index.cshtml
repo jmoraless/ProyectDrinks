@@ -1,0 +1,45 @@
+﻿<br />
+
+<div class="jumbotron">
+    <h1>Drinks!</h1>
+</div>
+
+<div class="row">
+    <div class="col-xs-6 col-md-5">
+        <div class="input-group">
+            <span class="input-group-btn">
+                <button class="btn btn-default" id="buscar" type="button">Buscar</button>
+            </span>
+            <input type="text" class="form-control" id="buscarTXT">
+        </div>
+    </div>
+
+    <div class="col-xs-6 col-md-4" style="float:right !important;">
+        <a href='@Url.Action("Favorite", "Home")' class="btn btn-primary" role="button">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            Favoritos
+        </a>
+    </div>
+
+    <div class="col-xs-6 col-md-3">
+        <label><input type="radio" id="radio_ing" value="ingredent" name="search"> Buscar por ingrediente</label><br>
+        <label><input type="radio" id="radio_nom" value="name" name="search"> Buscar por nombre</label><br>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div id="response">
+        @foreach (var item in Model.drinks)
+        {
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail" onclick="getDetalle(@item.idDrink)">
+                    <img src="@item.strDrinkThumb" style="width:200% !important; height:500% !important;" />
+                    <label>@item.strDrink</label>
+                </a>
+
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/drink.js"></script>
